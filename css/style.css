@@ -12,5 +12,18 @@
 	background-size: 100%;
 	background-position-y: 0%;  /* 先将图片挪动到顶部，以便于能够往下落 */
 }
-
+#fly{
+	width:98px;
+	height:122px;
+	background: url(../img/me.png);
+	background-size: 100%;
+	position: absolute;left:48%;bottom: 0px;
+}
+.bullet{
+	width:7px;
+	height:18px;
+	background: url(../img/bullet.png);
+	background-size: 100%;
+	position: absolute;left:48%;top: -18px;
+}
 
