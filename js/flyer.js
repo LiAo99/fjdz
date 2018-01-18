@@ -1,46 +1,59 @@
-function Flyer = {
-	this.ele:$("#fly"),
+function Flyer(boxId){
+	this.ele= $(boxId)
 	
 }
 Flyer.prototype.start = function() {
 	
-	var self = this   // 先保存当前 拖拽对象！
+	var self = this 
 	
-	this.ele.mousedown(function(e) {  // 鼠标按下时候
+	this.ele.mousedown(function(e) {  
 		
-		e.preventDefault()  // 阻止浏览器默认行为
+		e.preventDefault()  
 			
-		var detaX = e.offsetX // 鼠标在元素中的点击位置
+		var detaX = e.offsetX 
 		var detaY = e.offsetY
 		
-		$(document).mousemove(function(e) {  // 整个页面中移动
+		$(document).mousemove(function(e) { 
 			
-			e.preventDefault()  // 阻止浏览器默认行为
+			e.preventDefault()  
 			
-			var x = e.clientX - detaX // 拖拽物体的位置
+			var x = e.clientX - detaX 
 			var y = e.clientY - detaY
-			
-			// 让物体移动到 x, y 的位置
-// 			this.ele.move(x, y)     // 1   Cannot read property 'move' of undefined
-//			self.ele.move(x, y)     // 2   self.ele.move is not a function
-			self.move(x, y)         // 3
+			self.move(x, y)        
 		})
 		
-		$(document).mouseup(function() { // 鼠标在页面中抬起
+		$(document).mouseup(function() { 
 			self.stop()
 		})
 	})
 }
 
-// 方法2：  移动物体
 Flyer.prototype.move = function(x, y) {
+	if (x < 0) {  // 如果x小于0
+		x = 0     // 那么，强制设置它为 0
+	}
+	if (y < 0) {  // 如果y小于0
+		y = 0     // 那么，强制设置它为 0
+	}
+	var maxX =$("body").width()-this.ele.width()
+	if(x>maxX){
+		x=maxX;
+	}
 	this.ele.css({
 		left: x,
 		top: y
 	})
 }
 
-// 方法3：  停止拖拽
 Flyer.prototype.stop = function() {
 	$(document).off("mouseup mousemove")
+}
+
+Flyer.prototype.fire = function() {
+	
+	var self = this
+	
+	this.timer = setInterval(function() {
+		new Bullet().move();
+	}, 100);
 }
