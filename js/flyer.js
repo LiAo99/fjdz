@@ -22,10 +22,39 @@ Flyer.prototype.start = function() {
 			self.move(x, y)        
 		})
 		
+		
 		$(document).mouseup(function() { 
 			self.stop()
 		})
 	})
+	$(document).keydown(function(e){
+			
+			if(e.keyCode==37){
+				
+				var x =parseInt(self.ele.css("left"));
+				var y =parseInt(self.ele.css("top"));
+				x -= 5;
+				self.move(x,y)
+			}
+			if(e.keyCode==39){
+				var x =parseInt(self.ele.css("left"));
+				var y =parseInt(self.ele.css("top"));
+				x += 5;
+				self.move(x,y)
+			}
+			if(e.keyCode==38){
+				var x =parseInt(self.ele.css("left"));
+				var y =parseInt(self.ele.css("top"));
+				y -= 5;
+				self.move(x,y)
+			}
+			if(e.keyCode==40){
+				var x =parseInt(self.ele.css("left"));
+				var y =parseInt(self.ele.css("top"));
+				y += 5;
+				self.move(x,y)
+			}
+		})
 }
 
 Flyer.prototype.move = function(x, y) {

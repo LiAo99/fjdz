@@ -11,7 +11,17 @@ var gameEngine = {
 		
 		new Flyer().fire();
 		
-		setInterval(function(){new Diji();},800)
+		setInterval(function(){
+			if(Math.random()<0.2){
+				new Bigdiji().move();
+			}
+			if(Math.random()<0.5){
+				new Middiji().move();
+			}
+			if(Math.random()<0.9){
+				new Smalldiji().move();
+			}
+		},800)
 
 	},
 	

@@ -28,11 +28,38 @@ body{
 	background-size: 100%;
 	position: absolute;
 }
-.diji{
+.diji {
 	width: 70px;
 	height: 92px;
 	position: absolute;
 	left: 0;
-	top: -50px;
+	top: 0;
 	background: url(../img/plain2.png);
+}
+
+.bigdiji {
+	width: 165px;
+	height: 256px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	background: url(../img/plain3.png);
+}
+
+.middiji {
+	width: 70px;
+	height: 92px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	background: url(../img/plain2.png);
+}
+
+.smalldiji {
+	width: 59px;
+	height: 36px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	background: url(../img/plain1.png);
 }
